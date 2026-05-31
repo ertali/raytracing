@@ -1,3 +1,5 @@
+from PIL import Image
+
 from utils import (
     camera,
     hittable_list,
@@ -16,6 +18,8 @@ world.add(sphere(vec3(0, -100.5, -1), 100))
 cam = camera(16 / 9, 400, 100)
 
 cam.render(world, "example_output")
+with Image.open("example_output.ppm") as img:
+    img.save("example_output.png", "PNG")
 
 
 """
